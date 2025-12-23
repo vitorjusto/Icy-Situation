@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctqwhalhunfxw"]
+
+[ext_resource type="Script" path="res://Scripts/Models/Players/Player.cs" id="1_s3qo3"]
+[ext_resource type="Texture2D" uid="uid://drh6a18thn7ou" path="res://Assets/PlayerPlaceholder.png" id="3_0g8y4"]
+[ext_resource type="Script" path="res://Scripts/Models/Players/HammerColision.cs" id="3_qhb2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebq34"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xvd"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmwfm"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnkpy"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mid7i"]
+size = Vector2(32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5s47"]
+atlas = ExtResource("3_0g8y4")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfadg"]
+atlas = ExtResource("3_0g8y4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coyot"]
+atlas = ExtResource("3_0g8y4")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4vh2"]
+atlas = ExtResource("3_0g8y4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rm581"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5s47")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfadg")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coyot")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4vh2")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_hammer")]
+texture_filter = 1
+script = ExtResource("1_s3qo3")
+_sprite = NodePath("AnimatedSprite2D")
+_hammer = NodePath("HammerColision")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ebq34")
+
+[node name="HammerColision" type="Area2D" parent="."]
+script = ExtResource("3_qhb2w")
+
+[node name="ColRight" type="CollisionShape2D" parent="HammerColision"]
+position = Vector2(28, 0)
+shape = SubResource("RectangleShape2D_f1xvd")
+disabled = true
+
+[node name="ColLeft" type="CollisionShape2D" parent="HammerColision"]
+position = Vector2(-28, 0)
+shape = SubResource("RectangleShape2D_gmwfm")
+disabled = true
+
+[node name="ColDown" type="CollisionShape2D" parent="HammerColision"]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_rnkpy")
+disabled = true
+
+[node name="ColUp" type="CollisionShape2D" parent="HammerColision"]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_mid7i")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rm581")
+animation = &"Right"

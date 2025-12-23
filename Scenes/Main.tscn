@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://faw05ywkreq2"]
+
+[ext_resource type="PackedScene" uid="uid://ctqwhalhunfxw" path="res://Scenes/Player/Player.tscn" id="1_omd86"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsm8d"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"dd",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_omd86")]
+position = Vector2(156, 279)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jsm8d")
+animation = &"dd"
