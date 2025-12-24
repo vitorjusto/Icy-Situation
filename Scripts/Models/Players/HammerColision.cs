@@ -1,6 +1,7 @@
 using Godot;
 using WinterGame.Scripts.Enums;
 using WinterGame.Scripts.Helpers;
+using WinterGame.Scripts.Models.Blocks;
 
 namespace WinterGame.Scripts.Models.Players
 {
@@ -47,6 +48,14 @@ namespace WinterGame.Scripts.Models.Players
 					_timer.Start();
 					IsPunching = true;
 				}
+			}
+		}
+
+		public void OnBodyDetected(Node2D body)
+		{
+			if(body is Block block)
+			{
+				block.StartMoving(Player.GetPlayer().FacingDirection);
 			}
 		}
 	}

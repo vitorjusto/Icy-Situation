@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdbmt8ng3we5o"]
+
+[ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_8xy3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a85s8"]
+size = Vector2(32, 32)
+
+[node name="Block" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 6
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_8xy3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_a85s8")
+debug_color = Color(0, 1, 0, 0.419608)
