@@ -39,6 +39,7 @@ namespace WinterGame.Scripts.Models.Blocks
 
 		public void StartMoving(EDirection direction)
 		{
+			FixPosition();
 			Speed = new Vector2(
 					x: direction == EDirection.Right? 400: direction == EDirection.Left?-400: 0,
 					y: direction == EDirection.Down? 400: direction == EDirection.Up?-400: 0

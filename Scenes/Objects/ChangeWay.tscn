@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://kvi8sx2au5pm"]
+
+[ext_resource type="Script" path="res://Scripts/Models/Objects/ChangeWay.cs" id="1_xj245"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16gce"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywylh"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbkj4"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upwdc"]
+size = Vector2(32, 8)
+
+[node name="ChangeWay" type="Node2D"]
+script = ExtResource("1_xj245")
+
+[node name="AUp" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AUp"]
+position = Vector2(16, 4)
+shape = SubResource("RectangleShape2D_16gce")
+
+[node name="ALeft" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ALeft"]
+position = Vector2(4, 16)
+shape = SubResource("RectangleShape2D_ywylh")
+
+[node name="ARight" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ARight"]
+position = Vector2(28, 16)
+shape = SubResource("RectangleShape2D_pbkj4")
+
+[node name="ADown" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ADown"]
+position = Vector2(16, 28)
+shape = SubResource("RectangleShape2D_upwdc")
+
+[connection signal="body_entered" from="AUp" to="." method="onUpEntered"]
+[connection signal="body_exited" from="AUp" to="." method="onUpExited"]
+[connection signal="body_entered" from="ALeft" to="." method="onLeftEntered"]
+[connection signal="body_exited" from="ALeft" to="." method="onLeftExited"]
+[connection signal="body_entered" from="ARight" to="." method="onRightEntered"]
+[connection signal="body_exited" from="ARight" to="." method="onRightExited"]
+[connection signal="body_entered" from="ADown" to="." method="onDownEntered"]
+[connection signal="body_exited" from="ADown" to="." method="onDownExited"]

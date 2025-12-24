@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://faw05ywkreq2"]
+[gd_scene load_steps=14 format=3 uid="uid://faw05ywkreq2"]
 
 [ext_resource type="PackedScene" uid="uid://ctqwhalhunfxw" path="res://Scenes/Player/Player.tscn" id="1_omd86"]
 [ext_resource type="PackedScene" uid="uid://cdbmt8ng3we5o" path="res://Scenes/Blocks/Block.tscn" id="2_4ybis"]
 [ext_resource type="PackedScene" uid="uid://t1yndyiqfdge" path="res://Scenes/Blocks/64x64Block.tscn" id="3_6f8xv"]
 [ext_resource type="PackedScene" uid="uid://beyq52nd3nvw6" path="res://Scenes/Blocks/CBlock.tscn" id="4_7jol6"]
+[ext_resource type="PackedScene" uid="uid://5hvcspcl05gr" path="res://Scenes/Objects/Button.tscn" id="5_nwcg3"]
+[ext_resource type="PackedScene" uid="uid://lvo58652f5x1" path="res://Scenes/Objects/Door.tscn" id="6_hhvdl"]
+[ext_resource type="PackedScene" uid="uid://kvi8sx2au5pm" path="res://Scenes/Objects/ChangeWay.tscn" id="7_l3aqr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jsm8d"]
 animations = [{
@@ -98,7 +101,7 @@ shape = SubResource("RectangleShape2D_jyi0d")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(240, 176)
+position = Vector2(144, 176)
 shape = SubResource("RectangleShape2D_jyi0d")
 debug_color = Color(0, 0, 0, 0.419608)
 
@@ -128,7 +131,21 @@ shape = SubResource("RectangleShape2D_5xqeo")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="64x64Block" parent="." instance=ExtResource("3_6f8xv")]
-position = Vector2(256, 224)
+position = Vector2(680, 168)
 
 [node name="CBlock" parent="." instance=ExtResource("4_7jol6")]
 position = Vector2(448, 160)
+
+[node name="Button" parent="." instance=ExtResource("5_nwcg3")]
+position = Vector2(664, 376)
+
+[node name="Button2" parent="." instance=ExtResource("5_nwcg3")]
+position = Vector2(384, 320)
+
+[node name="Door" parent="." node_paths=PackedStringArray("Buttons") instance=ExtResource("6_hhvdl")]
+position = Vector2(544, 568)
+Buttons = [NodePath("../Button"), NodePath("../Button2")]
+
+[node name="ChangeWay" parent="." instance=ExtResource("7_l3aqr")]
+position = Vector2(288, 160)
+Direction = 3

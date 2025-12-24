@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Models/Players/HammerColision.cs" id="3_qhb2w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1gs4"]
-radius = 8.0
+radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xvd"]
 size = Vector2(8, 16)
@@ -110,6 +110,5 @@ sprite_frames = SubResource("SpriteFrames_rm581")
 animation = &"Right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.2, 3.2)
 
 [connection signal="body_entered" from="HammerColision" to="HammerColision" method="OnBodyDetected"]
