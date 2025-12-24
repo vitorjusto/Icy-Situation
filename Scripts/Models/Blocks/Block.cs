@@ -50,8 +50,8 @@ namespace WinterGame.Scripts.Models.Blocks
 
 		private void FixPosition()
 		{
-			Position = new Vector2(((float)Math.Floor(Position.X / 32) * 32 + (Position.X % 32 > 16? 32: Position.X % 32 < -16? -32: 0)),
-							   (float)Math.Floor(Position.Y / 32) * 32+ (Position.Y % 32 > 16? 32: Position.Y % 32 < -16? -32: 0));
+			Position = new Vector2(((float)Math.Truncate(Position.X / 32) * 32 + (Position.X % 32 > 16? 32: Position.X % 32 < -16? -64: 0)),
+							   (float)Math.Truncate(Position.Y / 32) * 32+ (Position.Y % 32 > 16? 32: Position.Y % 32 < -16? -32: 0));
 			
 			GD.Print(Position);
 			_collisions.ForEach((x) => x.onStoped());

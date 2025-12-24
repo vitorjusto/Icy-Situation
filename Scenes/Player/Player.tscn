@@ -72,7 +72,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_hammer")]
 texture_filter = 1
-collision_mask = 2
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_s3qo3")
 _sprite = NodePath("AnimatedSprite2D")
@@ -110,5 +110,6 @@ sprite_frames = SubResource("SpriteFrames_rm581")
 animation = &"Right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [connection signal="body_entered" from="HammerColision" to="HammerColision" method="OnBodyDetected"]
