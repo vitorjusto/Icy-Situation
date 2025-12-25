@@ -110,6 +110,5 @@ sprite_frames = SubResource("SpriteFrames_rm581")
 animation = &"Right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
 
 [connection signal="body_entered" from="HammerColision" to="HammerColision" method="OnBodyDetected"]

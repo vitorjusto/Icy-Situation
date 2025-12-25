@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using WinterGame.Scripts.Enums;
 using WinterGame.Scripts.Models.Players;
@@ -13,7 +14,7 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public HammerColision _hammer;
 	public EDirection FacingDirection { get; private set; }
-
+	private bool _allowMove = true;
 	public override void _Ready()
 	{
 		_player = this;
@@ -21,6 +22,8 @@ public partial class Player : CharacterBody2D
 	}
 	public override void _PhysicsProcess(double delta)
 	{
+		if(!_allowMove)
+			return;
 		this.Velocity = Input.GetVector("Left", "Right", "Up", "Down") * (float)delta * 30000;
 		
 		HandlePunch();
@@ -64,4 +67,10 @@ public partial class Player : CharacterBody2D
 			FacingDirection = EDirection.Right;
 		
 	}
+
+	public void LockMovement()
+		=> _allowMove = false;
+
+	internal void UnlockMovement()
+		=> _allowMove = true;
 }
