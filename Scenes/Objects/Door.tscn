@@ -10,6 +10,6 @@ script = ExtResource("1_vcqav")
 Buttons = []
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 176.0
-offset_bottom = 72.0
+offset_right = 192.0
+offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_l35du")

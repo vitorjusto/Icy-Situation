@@ -11,6 +11,8 @@ namespace WinterGame.Scripts.Helpers
 		{
 			_col = col;
 			_originalSize = ((RectangleShape2D)_col.Shape).Size;
+			_col.Shape = new RectangleShape2D();
+			((RectangleShape2D)_col.Shape).Size = _originalSize;
 		}
 
 		public void onMoving()

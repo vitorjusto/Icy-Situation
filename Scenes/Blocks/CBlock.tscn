@@ -10,7 +10,7 @@ size = Vector2(32, 32)
 
 [node name="CBlock" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 14
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_vqrc0")

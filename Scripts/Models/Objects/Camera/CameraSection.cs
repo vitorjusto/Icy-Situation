@@ -11,6 +11,7 @@ public partial class CameraSection : Node2D
 	private readonly List<CameraBlocker> _blockers = new();
 	private readonly List<BlockRestarter> _blocks = new();
 	private Player player;
+	public bool Active = false;
 
 	public override void _Ready()
 	{
@@ -30,12 +31,18 @@ public partial class CameraSection : Node2D
 		=> SetCameraSectionToPlayer();
 	public void SetCameraSectionToPlayer()
 	{
+		if(Active)
+			return;
+			
         var camera = Player.GetPlayer().GetNode<Camera2D>("Camera2D");
     
         foreach(var blocker in _blockers)
         {
             HandleCameraBehavior(camera, blocker);
         }
+
+		onResetButtonPressed(null);
+		EmitSignal("OnActivated", this);
 	}
 
     private void HandleCameraBehavior(Camera2D camera, CameraBlocker blocker)
@@ -57,4 +64,7 @@ public partial class CameraSection : Node2D
             block.Restart();
         }
 	}
+
+	[Signal]
+	public delegate void OnActivatedEventHandler(CameraSection cameraSection);
 }

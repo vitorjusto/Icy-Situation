@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_8xy3q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a85s8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1crun"]
 size = Vector2(32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5art4"]
@@ -16,7 +16,7 @@ script = ExtResource("1_8xy3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_a85s8")
+shape = SubResource("RectangleShape2D_1crun")
 debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="Panel" type="Panel" parent="."]
