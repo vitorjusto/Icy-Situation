@@ -24,7 +24,7 @@ public partial class Player : CharacterBody2D
 	{
 		if(!_allowMove)
 			return;
-		this.Velocity = Input.GetVector("Left", "Right", "Up", "Down") * (float)delta * 30000;
+		this.Velocity = Input.GetVector("Left", "Right", "Up", "Down") * (float)delta * 20000;
 		
 		HandlePunch();
 		ProcessFacingDirection();
