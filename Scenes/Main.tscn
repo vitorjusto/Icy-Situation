@@ -14,7 +14,7 @@ bg_color = Color(0, 0, 0, 1)
 layer = 128
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_left = -1391.0
+offset_left = -1528.0
 offset_top = -72.0
 offset_right = -10.0
 offset_bottom = 704.0

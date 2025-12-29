@@ -31,7 +31,7 @@ public partial class Player : CharacterBody2D
 		ProcessAnimations();
 
 		MoveAndSlide();
-
+		_player.ChangeCameraSmooth(true);
 	}
 
 	private void HandlePunch()
@@ -73,4 +73,10 @@ public partial class Player : CharacterBody2D
 
 	internal void UnlockMovement()
 		=> _allowMove = true;
+
+	public void ChangeCameraSmooth(bool value)
+	{
+
+		GetNode<Camera2D>("Camera2D").PositionSmoothingEnabled = value;
+	}
 }

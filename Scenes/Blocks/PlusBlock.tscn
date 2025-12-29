@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1dhr37psscnd"]
+
+[ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_qjp0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhbjh"]
+size = Vector2(32, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh7dc"]
+size = Vector2(96, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tby7r"]
+
+[node name="PlusBlock" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 14
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_qjp0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_qhbjh")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_nh7dc")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")

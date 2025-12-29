@@ -2,23 +2,25 @@ using Godot;
 using WinterGame.Scripts.Managers;
 
 namespace WinterGame.Scripts.Handlers;
-public class ScreenUnfadingState : HandlerBase
+public class ScreenFadingState : HandlerBase
 {
     private readonly Player _player;
     private readonly Control _blackScreen;
     private static int BlackScreenSpeed => 50;
 
-    public ScreenUnfadingState(LevelManager levelManager)
+    public ScreenFadingState(LevelManager levelManager)
     {
         _blackScreen = levelManager.GetTree().Root.GetNode<Control>("/root/Main/CanvasLayer/Panel");
         _player = levelManager.GetTree().Root.GetNode<Player>("/root/Main/Player");
+        _blackScreen.Position = new Vector2(-1391, 0);
+        _blackScreen.Visible = true;
     }
 
     public override bool Handle()
     {
         _blackScreen.Position = new Vector2(_blackScreen.Position.X + BlackScreenSpeed, _blackScreen.Position.Y);
-        _player.UnlockMovement();
+        _player.LockMovement();
 
-        return _blackScreen.Position.X >= 2000;
+        return _blackScreen.Position.X >= -70;
     }
 }

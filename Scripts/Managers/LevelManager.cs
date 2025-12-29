@@ -1,28 +1,35 @@
 using Godot;
+using WinterGame.Scripts.Enums;
 using WinterGame.Scripts.Handlers;
 
 namespace WinterGame.Scripts.Managers;
 public partial class LevelManager : Node2D
 {
+	private static LevelManager _manager;
+	public static LevelManager GetManager()
+		=> _manager;
+	
     private HandlerBase _screenTransitionState;
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-    	StartGame();
+		_manager = this;
+		
+    	_screenTransitionState = new StartGameTransistionState(this);
+    	_screenTransitionState.SetNextHandler(new LoadingLevelSceneState(this, "res://Scenes/Levels/Level2.tscn", EWarpType.Entrance))
+    					      .SetNextHandler(new ScreenUnfadingState(this));
 	}
 
-    private void StartGame()
+    public void ChangeLevel(string path, EWarpType warpType)
     {
         if(_screenTransitionState is not null)
     		return;
                 
-    	_screenTransitionState = new StartGameTransistionState(this);
-    	_screenTransitionState.SetNextHandler(new LoadingLevelSceneState(this, "res://Scenes/Levels/Level1.tscn"))
+    	_screenTransitionState = new ScreenFadingState(this);
+    	_screenTransitionState.SetNextHandler(new LoadingLevelSceneState(this, path, warpType))
     					      .SetNextHandler(new ScreenUnfadingState(this));
     }
     
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
     	HandleScreenTransistion();
