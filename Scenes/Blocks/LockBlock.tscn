@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvc0nwa6u17sr"]
+
+[ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_gl8k2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2r3"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wha8n"]
+size = Vector2(192, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtriq"]
+size = Vector2(32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2m1l"]
+
+[node name="CBlock" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 14
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_gl8k2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(176, 48)
+shape = SubResource("RectangleShape2D_7b2r3")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(96, 80)
+shape = SubResource("RectangleShape2D_wha8n")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(16, 48)
+shape = SubResource("RectangleShape2D_jtriq")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 192.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
+
+[node name="Panel3" type="Panel" parent="."]
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
