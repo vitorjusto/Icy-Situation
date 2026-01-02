@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgu53ugr5prfx"]
+[gd_scene load_steps=24 format=3 uid="uid://dgu53ugr5prfx"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Level/LevelBase.cs" id="1_d6fip"]
 [ext_resource type="PackedScene" uid="uid://c1xyi38mxaul6" path="res://Scenes/Tiles/tiles.tscn" id="1_lq67l"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cpfd0vq6pmxw3" path="res://Scenes/Blocks/64x32Block.tscn" id="9_03oug"]
 [ext_resource type="PackedScene" uid="uid://t0qye3ilcc43" path="res://Scenes/Blocks/32x64Block.tscn" id="10_e7own"]
 [ext_resource type="PackedScene" uid="uid://dhmjkum8i0ico" path="res://Scenes/Objects/WarpZone.tscn" id="12_4swgv"]
+[ext_resource type="PackedScene" uid="uid://5yyha2slwvsd" path="res://Scenes/Objects/Coin.tscn" id="13_poojh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_731cg"]
 size = Vector2(285, 73)
@@ -787,3 +788,14 @@ Color = 1
 position = Vector2(1816, 776)
 scale = Vector2(24.8, 4.145)
 Path = "res://Scenes/Levels/Level2.tscn"
+
+[node name="Coin" parent="." instance=ExtResource("13_poojh")]
+position = Vector2(384, -1600)
+
+[node name="Coin2" parent="." instance=ExtResource("13_poojh")]
+position = Vector2(1528, -1104)
+CoinId = 1
+
+[node name="Coin3" parent="." instance=ExtResource("13_poojh")]
+position = Vector2(2192, -312)
+CoinId = 2

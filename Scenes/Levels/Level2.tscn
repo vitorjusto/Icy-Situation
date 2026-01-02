@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bbbbgq45oqgi5"]
+[gd_scene load_steps=45 format=3 uid="uid://bbbbgq45oqgi5"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Level/LevelBase.cs" id="1_fyndd"]
 [ext_resource type="PackedScene" uid="uid://c1xyi38mxaul6" path="res://Scenes/Tiles/tiles.tscn" id="2_0ojec"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://co76plx70wq1h" path="res://Scenes/Blocks/WeirdBlock2.tscn" id="28_82inn"]
 [ext_resource type="PackedScene" uid="uid://df7xx8umobap7" path="res://Scenes/Blocks/WeirdBlock3.tscn" id="29_5f8bl"]
 [ext_resource type="PackedScene" uid="uid://lvo58652f5x1" path="res://Scenes/Objects/Door.tscn" id="32_0f4bm"]
+[ext_resource type="PackedScene" uid="uid://5yyha2slwvsd" path="res://Scenes/Objects/Coin.tscn" id="33_nhaj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqpgh"]
 size = Vector2(60.125, 212.625)
@@ -867,7 +868,7 @@ position = Vector2(616, 160)
 position = Vector2(2360, 4032)
 
 [node name="WarpZone" parent="." instance=ExtResource("5_c8vri")]
-position = Vector2(592, -72)
+position = Vector2(592, -80)
 scale = Vector2(17.89, 6.31)
 Path = "res://Scenes/Levels/Level1.tscn"
 GoToAnchor = 1
@@ -918,3 +919,11 @@ Color = 1
 position = Vector2(1792, 3456)
 rotation = 1.5708
 Buttons = [NodePath("../S9/Button49"), NodePath("../S9/Button50"), NodePath("../S9/Button51"), NodePath("../S9/Button52"), NodePath("../S9/Button53"), NodePath("../S9/Button54"), NodePath("../S9/Button55"), NodePath("../S9/Button56"), NodePath("../S9/Button57"), NodePath("../S9/Button58"), NodePath("../S9/Button59"), NodePath("../S9/Button60")]
+
+[node name="Coin" parent="." instance=ExtResource("33_nhaj4")]
+position = Vector2(3344, 832)
+CoinId = 3
+
+[node name="Coin2" parent="." instance=ExtResource("33_nhaj4")]
+position = Vector2(1352, 3552)
+CoinId = 4

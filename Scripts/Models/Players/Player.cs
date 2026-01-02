@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 using WinterGame.Scripts.Enums;
 using WinterGame.Scripts.Models.Players;
 
 public partial class Player : CharacterBody2D
 {
+	public List<int> CoinsCollected {get; private set;} = new();
 	private static Player _player;
 	private static AnimationPlayer _animation;
 	public static Player GetPlayer()
@@ -32,8 +34,8 @@ public partial class Player : CharacterBody2D
 			
 		this.Velocity = Input.GetVector("Left", "Right", "Up", "Down") * (float)delta * 20000;
 		
-		HandlePunch();
 		ProcessFacingDirection();
+		HandlePunch();
 		ProcessAnimations();
 
 		if(this.Velocity == Vector2.Zero)
@@ -76,6 +78,8 @@ public partial class Player : CharacterBody2D
 
 	private void ProcessFacingDirection()
 	{
+		if(_hammer.IsPunching)
+			return;
 
 		if(this.Velocity.Y < 0 && FacingDirection == EDirection.Up)
 			return;
@@ -107,13 +111,5 @@ public partial class Player : CharacterBody2D
 	{
 
 		GetNode<Camera2D>("Camera2D").PositionSmoothingEnabled = value;
-	}
-
-	public void OnPunchAnimationEnded(string name)
-	{
-		GetNode<Node2D>("PlayerHandLeft").Visible = false;
-		GetNode<Node2D>("PlayerHandRight").Visible = false;
-		GetNode<Node2D>("PlayerHandUp").Visible = false;
-		GetNode<Node2D>("PlayerHandDown").Visible = false;
 	}
 }
