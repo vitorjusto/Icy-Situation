@@ -1,25 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://vinmnbeig815"]
+[gd_scene load_steps=7 format=3 uid="uid://vinmnbeig815"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Objects/ResetButton.cs" id="1_srer7"]
+[ext_resource type="Texture2D" uid="uid://d2kdedsp6epbw" path="res://Assets/Objects/ResetButton.png" id="2_4663w"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ygfxs"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxbvf"]
+size = Vector2(76, 34)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlbdl"]
-corner_radius_top_left = 1024
-corner_radius_top_right = 1024
-corner_radius_bottom_right = 1024
-corner_radius_bottom_left = 1024
+[sub_resource type="AtlasTexture" id="AtlasTexture_46rsy"]
+atlas = ExtResource("2_4663w")
+region = Rect2(0, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bky15"]
+atlas = ExtResource("2_4663w")
+region = Rect2(0, 32, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1l72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46rsy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bky15")
+}],
+"loop": true,
+"name": &"Pressing",
+"speed": 5.0
+}]
 
 [node name="ResetButton" type="Area2D"]
 script = ExtResource("1_srer7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ygfxs")
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_kxbvf")
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jlbdl")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_a1l72")
+animation = &"Idle"
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="." to="." method="OnBodyExited"]
