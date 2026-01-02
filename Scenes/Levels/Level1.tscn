@@ -57,6 +57,10 @@ metadata/_edit_horizontal_guides_ = []
 position = Vector2(576, 40)
 shape = SubResource("RectangleShape2D_731cg")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="S1"]
+position = Vector2(600, 416)
+shape = SubResource("RectangleShape2D_731cg")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="S1"]
 position = Vector2(1103.25, 400)
 shape = SubResource("RectangleShape2D_vloe5")
@@ -83,7 +87,7 @@ position = Vector2(0, 336)
 Direction = 2
 
 [node name="ResetButton" parent="S1" instance=ExtResource("5_p1gc3")]
-position = Vector2(712, 560)
+position = Vector2(848, 536)
 
 [node name="S10" parent="." instance=ExtResource("3_y8srv")]
 

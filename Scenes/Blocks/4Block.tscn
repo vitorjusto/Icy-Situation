@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct73hofboty47"]
+[gd_scene load_steps=5 format=3 uid="uid://ct73hofboty47"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_h6n2p"]
+[ext_resource type="Texture2D" uid="uid://dcqi30ycn1c1u" path="res://Assets/Blocks/Blocks.png" id="2_0vkwu"]
+[ext_resource type="Texture2D" uid="uid://btbwm832xtdjr" path="res://Assets/Blocks/Chains.png" id="3_k4w7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1crun"]
 size = Vector2(32, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5art4"]
 
 [node name="4Block" type="CharacterBody2D"]
 collision_layer = 2
@@ -14,50 +14,60 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_h6n2p")
 
+[node name="Blocks" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+texture = ExtResource("2_0vkwu")
+
+[node name="Blocks2" type="Sprite2D" parent="."]
+position = Vector2(16, 80)
+texture = ExtResource("2_0vkwu")
+
+[node name="Blocks3" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+texture = ExtResource("2_0vkwu")
+
+[node name="Blocks4" type="Sprite2D" parent="."]
+position = Vector2(80, 16)
+texture = ExtResource("2_0vkwu")
+
+[node name="Chains" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(16, 48)
+texture = ExtResource("3_k4w7y")
+
+[node name="Chains2" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(80, 48)
+texture = ExtResource("3_k4w7y")
+
+[node name="Chains3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(48, 16)
+rotation = 1.5708
+texture = ExtResource("3_k4w7y")
+
+[node name="Chains4" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(48, 80)
+rotation = 1.5708
+texture = ExtResource("3_k4w7y")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_1crun")
 debug_color = Color(0, 1, 0, 0.419608)
-
-[node name="Panel" type="Panel" parent="."]
-offset_right = 32.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(80, 16)
 shape = SubResource("RectangleShape2D_1crun")
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 64.0
-offset_right = 96.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-metadata/_edit_use_anchors_ = true
-
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(16, 80)
 shape = SubResource("RectangleShape2D_1crun")
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Panel3" type="Panel" parent="."]
-offset_top = 64.0
-offset_right = 32.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-metadata/_edit_use_anchors_ = true
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2(80, 80)
 shape = SubResource("RectangleShape2D_1crun")
 debug_color = Color(0, 1, 0, 0.419608)
-
-[node name="Panel4" type="Panel" parent="."]
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-metadata/_edit_use_anchors_ = true

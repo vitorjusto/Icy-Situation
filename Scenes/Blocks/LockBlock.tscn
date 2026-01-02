@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvc0nwa6u17sr"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_gl8k2"]
+[ext_resource type="Texture2D" uid="uid://cwtwigj55my1c" path="res://Assets/Blocks/LockBlock.png" id="2_w0du0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2r3"]
 size = Vector2(32, 32)
@@ -10,8 +11,6 @@ size = Vector2(192, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtriq"]
 size = Vector2(32, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2m1l"]
 
 [node name="CBlock" type="CharacterBody2D"]
 collision_layer = 2
@@ -35,21 +34,6 @@ position = Vector2(16, 48)
 shape = SubResource("RectangleShape2D_jtriq")
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 160.0
-offset_top = 32.0
-offset_right = 192.0
-offset_bottom = 64.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_top = 32.0
-offset_right = 32.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
-
-[node name="Panel3" type="Panel" parent="."]
-offset_top = 64.0
-offset_right = 192.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
+[node name="LockBlock" type="Sprite2D" parent="."]
+position = Vector2(96, 64)
+texture = ExtResource("2_w0du0")

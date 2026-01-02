@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://clpkblxo7w7o"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_gpx42"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tby7r"]
+[ext_resource type="Texture2D" uid="uid://ble1nfg7wbtn6" path="res://Assets/Blocks/DimeBlock.png" id="2_6rm7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh6qo"]
 size = Vector2(160, 32)
@@ -20,24 +19,9 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_gpx42")
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 64.0
-offset_right = 96.0
-offset_bottom = 160.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 128.0
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
-
-[node name="Panel3" type="Panel" parent="."]
-offset_top = 64.0
-offset_right = 160.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
+[node name="DimeBlock" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+texture = ExtResource("2_6rm7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(80, 80)

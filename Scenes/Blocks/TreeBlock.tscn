@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://rqo0ixqa01aq"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_xbuih"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tby7r"]
+[ext_resource type="Texture2D" uid="uid://cfb3i72qpitqu" path="res://Assets/Blocks/TreeBlock.png" id="2_ba3q2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh6qo"]
 size = Vector2(96, 32)
@@ -19,30 +18,6 @@ collision_mask = 14
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_xbuih")
-
-[node name="Panel" type="Panel" parent="."]
-offset_left = 32.0
-offset_right = 64.0
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_top = 96.0
-offset_right = 96.0
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
-
-[node name="Panel3" type="Panel" parent="."]
-offset_top = 32.0
-offset_right = 32.0
-offset_bottom = 64.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
-
-[node name="Panel4" type="Panel" parent="."]
-offset_left = 64.0
-offset_right = 96.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(48, 112)
@@ -63,3 +38,7 @@ debug_color = Color(0, 1, 0, 0.419608)
 position = Vector2(48, 48)
 shape = SubResource("RectangleShape2D_ng0r4")
 debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="TreeBlock" type="Sprite2D" parent="."]
+position = Vector2(48, 64)
+texture = ExtResource("2_ba3q2")

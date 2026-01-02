@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cx64bk6b4wnwo"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_ae34t"]
+[ext_resource type="Texture2D" uid="uid://bn5stp8gc60fq" path="res://Assets/Blocks/AmostAnPUsedEspecificallyForThatPuzzleInLevel2Block.png" id="2_dranv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enh5k"]
 size = Vector2(32, 96)
@@ -11,14 +12,16 @@ size = Vector2(32, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtriq"]
 size = Vector2(32, 32)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2m1l"]
-
 [node name="AmostAnPUsedEspecificallyForThatPuzzleInLevel2Block" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 14
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_ae34t")
+
+[node name="AmostAnPUsedEspecificallyForThatPuzzleInLevel2Block" type="Sprite2D" parent="."]
+position = Vector2(48, 48)
+texture = ExtResource("2_dranv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 48)
@@ -34,20 +37,3 @@ debug_color = Color(0, 1, 0, 0.419608)
 position = Vector2(48, 16)
 shape = SubResource("RectangleShape2D_jtriq")
 debug_color = Color(0, 1, 0, 0.419608)
-
-[node name="Panel" type="Panel" parent="."]
-offset_right = 32.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 64.0
-offset_right = 96.0
-offset_bottom = 64.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")
-
-[node name="Panel3" type="Panel" parent="."]
-offset_left = 32.0
-offset_right = 64.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2m1l")

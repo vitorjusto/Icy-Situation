@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhg38wdjyep4w"]
+[gd_scene load_steps=6 format=3 uid="uid://bhg38wdjyep4w"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_w2squ"]
+[ext_resource type="Texture2D" uid="uid://b3rr8n8m07g1l" path="res://Assets/Blocks/TetrisLBlock.png" id="2_yrwrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfdwq"]
 size = Vector2(32, 96)
@@ -37,3 +38,7 @@ offset_top = 64.0
 offset_right = 64.0
 offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
+
+[node name="TetrisLBlock" type="Sprite2D" parent="."]
+position = Vector2(32, 48)
+texture = ExtResource("2_yrwrc")

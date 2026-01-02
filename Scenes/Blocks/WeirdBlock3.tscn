@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://df7xx8umobap7"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_rj25l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5art4"]
+[ext_resource type="Texture2D" uid="uid://8iwoio6i6naf" path="res://Assets/Blocks/Weird3Block.png" id="2_gdotk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1crun"]
 size = Vector2(32, 64)
@@ -20,25 +19,6 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_rj25l")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 32.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 64.0
-offset_top = 32.0
-offset_right = 96.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-
-[node name="Panel3" type="Panel" parent="."]
-offset_left = 32.0
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5art4")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(80, 64)
 shape = SubResource("RectangleShape2D_1crun")
@@ -53,3 +33,7 @@ debug_color = Color(0, 1, 0, 0.419608)
 position = Vector2(48, 80)
 shape = SubResource("RectangleShape2D_pswq5")
 debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Weird3Block" type="Sprite2D" parent="."]
+position = Vector2(48, 48)
+texture = ExtResource("2_gdotk")

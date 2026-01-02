@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8whmuyl7mgv8"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Blocks/Block.cs" id="1_dcs4h"]
+[ext_resource type="Texture2D" uid="uid://d4njm8jm73geb" path="res://Assets/Blocks/LBlock.png" id="2_26d6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_577oc"]
 size = Vector2(32, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd14c"]
 size = Vector2(96, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tby7r"]
 
 [node name="LUSDBlock" type="CharacterBody2D"]
 collision_layer = 2
@@ -27,12 +26,6 @@ position = Vector2(48, 16)
 shape = SubResource("RectangleShape2D_rd14c")
 debug_color = Color(0, 1, 0, 0.419608)
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 32.0
-offset_bottom = 96.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_right = 96.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tby7r")
+[node name="LBlock" type="Sprite2D" parent="."]
+position = Vector2(48, 48)
+texture = ExtResource("2_26d6l")
