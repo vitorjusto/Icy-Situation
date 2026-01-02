@@ -11,17 +11,29 @@ collision_layer = 4
 script = ExtResource("1_vcqav")
 Buttons = []
 
-[node name="DoorActive" type="Sprite2D" parent="."]
+[node name="RedDoorActive" type="Sprite2D" parent="."]
 position = Vector2(96, 32)
 texture = ExtResource("2_4mfgh")
 region_enabled = true
 region_rect = Rect2(0, 0, 192, 64)
 
-[node name="DoorDeactive" type="Sprite2D" parent="."]
+[node name="BlueDoorActive" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("2_4mfgh")
+region_enabled = true
+region_rect = Rect2(0, 128, 192, 64)
+
+[node name="RedDoorDeactive" type="Sprite2D" parent="."]
 position = Vector2(96, 32)
 texture = ExtResource("2_4mfgh")
 region_enabled = true
 region_rect = Rect2(0, 64, 192, 64)
+
+[node name="BlueDoorDeactive" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("2_4mfgh")
+region_enabled = true
+region_rect = Rect2(0, 192, 192, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(96, 32)

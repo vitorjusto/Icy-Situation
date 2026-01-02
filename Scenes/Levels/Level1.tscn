@@ -368,6 +368,7 @@ position = Vector2(992, -1792)
 
 [node name="Button6" parent="S7" instance=ExtResource("7_w6vbs")]
 position = Vector2(384, -1952)
+Color = 1
 
 [node name="ResetButton3" parent="S7" instance=ExtResource("5_p1gc3")]
 position = Vector2(-1040, -2088)
@@ -619,9 +620,11 @@ position = Vector2(3104, -1312)
 
 [node name="Button" parent="S6" instance=ExtResource("7_w6vbs")]
 position = Vector2(1856, -352)
+Color = 1
 
 [node name="Button2" parent="S6" instance=ExtResource("7_w6vbs")]
 position = Vector2(1888, -640)
+Color = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="S6"]
 position = Vector2(1202.38, -256)
@@ -735,6 +738,7 @@ Buttons = [NodePath("../S5/Button5"), NodePath("../S5/Button6"), NodePath("../S5
 [node name="Door6" parent="." node_paths=PackedStringArray("Buttons") instance=ExtResource("8_auujx")]
 position = Vector2(288, -1696)
 Buttons = [NodePath("../S7/Button6")]
+Color = 1
 
 [node name="Door7" parent="." node_paths=PackedStringArray("Buttons") instance=ExtResource("8_auujx")]
 position = Vector2(1216, -2112)
@@ -777,6 +781,7 @@ Buttons = [NodePath("../S9/Button10"), NodePath("../S9/Button11"), NodePath("../
 position = Vector2(2144, -416)
 rotation = 1.5708
 Buttons = [NodePath("../S6/Button"), NodePath("../S6/Button2")]
+Color = 1
 
 [node name="WarpZone" parent="." instance=ExtResource("12_4swgv")]
 position = Vector2(1816, 776)

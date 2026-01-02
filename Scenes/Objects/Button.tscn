@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5hvcspcl05gr"]
+[gd_scene load_steps=8 format=3 uid="uid://5hvcspcl05gr"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Objects/Button.cs" id="1_jeppj"]
 [ext_resource type="Texture2D" uid="uid://q8nnp5c6jx6d" path="res://Assets/Objects/Button.png" id="2_27aou"]
@@ -14,6 +14,10 @@ region = Rect2(0, 0, 40, 32)
 atlas = ExtResource("2_27aou")
 region = Rect2(0, 32, 40, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf0fh"]
+atlas = ExtResource("2_27aou")
+region = Rect2(40, 0, 40, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6fnl"]
 animations = [{
 "frames": [{
@@ -21,7 +25,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dla04")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -30,6 +34,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Pressing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf0fh")
+}],
+"loop": true,
+"name": &"Red",
 "speed": 5.0
 }]
 
@@ -46,7 +58,7 @@ shape = SubResource("RectangleShape2D_08j31")
 z_index = -1
 position = Vector2(16, 16)
 sprite_frames = SubResource("SpriteFrames_v6fnl")
-animation = &"Idle"
+animation = &"Red"
 
 [connection signal="body_entered" from="." to="." method="onBodyEntered"]
 [connection signal="body_exited" from="." to="." method="onBodyExited"]

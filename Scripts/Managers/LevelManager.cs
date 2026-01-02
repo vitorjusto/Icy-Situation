@@ -16,7 +16,7 @@ public partial class LevelManager : Node2D
 		_manager = this;
 		
     	_screenTransitionState = new StartGameTransistionState(this);
-    	_screenTransitionState.SetNextHandler(new LoadingLevelSceneState(this, "res://Scenes/Levels/Level1.tscn", EWarpType.Entrance))
+    	_screenTransitionState.SetNextHandler(new LoadingLevelSceneState(this, "res://Scenes/Levels/Level2.tscn", EWarpType.Entrance))
     					      .SetNextHandler(new ScreenUnfadingState(this));
 	}
 
