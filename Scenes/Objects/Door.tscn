@@ -1,15 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://lvo58652f5x1"]
+[gd_scene load_steps=4 format=3 uid="uid://lvo58652f5x1"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Objects/Door.cs" id="1_vcqav"]
+[ext_resource type="Texture2D" uid="uid://ncpq3n1hn8hm" path="res://Assets/Objects/Door.png" id="2_4mfgh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l35du"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0vhe"]
+size = Vector2(192, 64)
 
-[node name="Door" type="Node2D" node_paths=PackedStringArray("Buttons")]
+[node name="Door" type="StaticBody2D" node_paths=PackedStringArray("Buttons")]
+collision_layer = 4
 script = ExtResource("1_vcqav")
 Buttons = []
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 192.0
-offset_bottom = 64.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_l35du")
+[node name="DoorActive" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("2_4mfgh")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 64)
+
+[node name="DoorDeactive" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("2_4mfgh")
+region_enabled = true
+region_rect = Rect2(0, 64, 192, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(96, 32)
+shape = SubResource("RectangleShape2D_d0vhe")

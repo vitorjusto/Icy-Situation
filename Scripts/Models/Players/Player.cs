@@ -26,6 +26,10 @@ public partial class Player : CharacterBody2D
 	{
 		if(!_allowMove)
 			return;
+
+		if(Input.IsActionJustPressed("DebugMode"))
+			GetNode<CollisionShape2D>("CollisionShape2D").Disabled = !GetNode<CollisionShape2D>("CollisionShape2D").Disabled;
+			
 		this.Velocity = Input.GetVector("Left", "Right", "Up", "Down") * (float)delta * 20000;
 		
 		HandlePunch();

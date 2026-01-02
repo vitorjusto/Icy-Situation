@@ -10,11 +10,25 @@ public partial class Door : Node2D
 	[Export]
 	public Button[] Buttons;
 
+	private CollisionShape2D _col;
+	private Node2D _tex;
+	public override void _Ready()
+	{
+		_col = GetNode<CollisionShape2D>("CollisionShape2D");
+		_tex = GetNode<Node2D>("DoorActive");
+	}
+
 	public override void _Process(double delta)
 	{
 		if(Buttons.All((x) => x.IsActived))
-			Modulate = Color.Color8(0, 255, 0);
+		{
+			_col.Disabled = true;
+			_tex.Visible = false;
+		}
 		else 
-			Modulate = Color.Color8(255, 0, 0);
+		{
+			_col.Disabled = false;
+			_tex.Visible = true;
+		}
 	}
 }
