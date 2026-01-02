@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctqwhalhunfxw"]
+[gd_scene load_steps=17 format=3 uid="uid://ctqwhalhunfxw"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Players/Player.cs" id="1_s3qo3"]
-[ext_resource type="Texture2D" uid="uid://drh6a18thn7ou" path="res://Assets/PlayerPlaceholder.png" id="3_0g8y4"]
+[ext_resource type="Texture2D" uid="uid://bfsdtfevprxqp" path="res://Assets/Objects/Player.png" id="3_30cce"]
 [ext_resource type="Script" path="res://Scripts/Models/Players/HammerColision.cs" id="3_qhb2w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1gs4"]
-radius = 8.0
+radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xvd"]
 size = Vector2(8, 16)
@@ -19,27 +19,27 @@ size = Vector2(16, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mid7i"]
 size = Vector2(16, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5s47"]
-atlas = ExtResource("3_0g8y4")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5d2l"]
+atlas = ExtResource("3_30cce")
+region = Rect2(0, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfadg"]
-atlas = ExtResource("3_0g8y4")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwkad"]
+atlas = ExtResource("3_30cce")
+region = Rect2(40, 40, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_coyot"]
-atlas = ExtResource("3_0g8y4")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s08gb"]
+atlas = ExtResource("3_30cce")
+region = Rect2(0, 40, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4vh2"]
-atlas = ExtResource("3_0g8y4")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_stsqg"]
+atlas = ExtResource("3_30cce")
+region = Rect2(40, 0, 40, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rm581"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c5s47")
+"texture": SubResource("AtlasTexture_f5d2l")
 }],
 "loop": true,
 "name": &"Down",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfadg")
+"texture": SubResource("AtlasTexture_hwkad")
 }],
 "loop": true,
 "name": &"Left",
@@ -55,7 +55,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_coyot")
+"texture": SubResource("AtlasTexture_s08gb")
 }],
 "loop": true,
 "name": &"Right",
@@ -63,12 +63,50 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b4vh2")
+"texture": SubResource("AtlasTexture_stsqg")
 }],
 "loop": true,
 "name": &"Up",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_yjinx"]
+resource_name = "Walk"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.349066, 0.349066, -0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_jhse1"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_to223"]
+_data = {
+"Idle": SubResource("Animation_jhse1"),
+"Walk": SubResource("Animation_yjinx")
+}
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_hammer")]
 texture_filter = 1
@@ -107,11 +145,18 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 3
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rm581")
-animation = &"Right"
+animation = &"Up"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_to223")
+}
 
 [connection signal="body_entered" from="HammerColision" to="HammerColision" method="OnBodyDetected"]

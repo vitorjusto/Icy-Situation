@@ -6,6 +6,7 @@ using WinterGame.Scripts.Models.Players;
 public partial class Player : CharacterBody2D
 {
 	private static Player _player;
+	private static AnimationPlayer _animation;
 	public static Player GetPlayer()
 		=> _player;
 	
@@ -19,6 +20,7 @@ public partial class Player : CharacterBody2D
 	{
 		_player = this;
 		FacingDirection = EDirection.Up;
+		_animation = GetNode<AnimationPlayer>("AnimationPlayer");
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -29,6 +31,11 @@ public partial class Player : CharacterBody2D
 		HandlePunch();
 		ProcessFacingDirection();
 		ProcessAnimations();
+
+		if(this.Velocity == Vector2.Zero)
+			_animation.Play("Idle");
+		else
+			_animation.Play("Walk");
 
 		MoveAndSlide();
 		_player.ChangeCameraSmooth(true);
