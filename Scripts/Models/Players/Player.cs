@@ -48,7 +48,25 @@ public partial class Player : CharacterBody2D
 	private void HandlePunch()
 	{
 		if(_hammer.IsPunching)
+		{
 			this.Velocity = Vector2.Zero;
+			return;
+		}
+
+		if(Input.IsActionJustPressed("Punch"))
+		{
+			GetNode<Node2D>("PlayerHandLeft").Visible = FacingDirection == EDirection.Left;
+			GetNode<Node2D>("PlayerHandRight").Visible = FacingDirection == EDirection.Right;
+			GetNode<Node2D>("PlayerHandUp").Visible = FacingDirection == EDirection.Up;
+			GetNode<Node2D>("PlayerHandDown").Visible = FacingDirection == EDirection.Down;
+
+		}else
+		{
+			GetNode<Node2D>("PlayerHandLeft").Visible = false;
+			GetNode<Node2D>("PlayerHandRight").Visible = false;
+			GetNode<Node2D>("PlayerHandUp").Visible = false;
+			GetNode<Node2D>("PlayerHandDown").Visible = false;
+		}
 	}
 
 	private void ProcessAnimations()
@@ -89,5 +107,13 @@ public partial class Player : CharacterBody2D
 	{
 
 		GetNode<Camera2D>("Camera2D").PositionSmoothingEnabled = value;
+	}
+
+	public void OnPunchAnimationEnded(string name)
+	{
+		GetNode<Node2D>("PlayerHandLeft").Visible = false;
+		GetNode<Node2D>("PlayerHandRight").Visible = false;
+		GetNode<Node2D>("PlayerHandUp").Visible = false;
+		GetNode<Node2D>("PlayerHandDown").Visible = false;
 	}
 }

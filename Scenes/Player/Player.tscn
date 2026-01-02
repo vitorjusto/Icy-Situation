@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctqwhalhunfxw"]
+[gd_scene load_steps=19 format=3 uid="uid://ctqwhalhunfxw"]
 
 [ext_resource type="Script" path="res://Scripts/Models/Players/Player.cs" id="1_s3qo3"]
 [ext_resource type="Texture2D" uid="uid://bfsdtfevprxqp" path="res://Assets/Objects/Player.png" id="3_30cce"]
 [ext_resource type="Script" path="res://Scripts/Models/Players/HammerColision.cs" id="3_qhb2w"]
+[ext_resource type="Texture2D" uid="uid://bultd8kilp8xk" path="res://Assets/PlayerHand.png" id="4_t7h63"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1gs4"]
 radius = 11.0
@@ -102,9 +103,62 @@ tracks/0/keys = {
 "values": [-0.349066, 0.349066, -0.349066]
 }
 
+[sub_resource type="Animation" id="Animation_wittx"]
+resource_name = "Punch"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerHandRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(14, 0), Vector2(25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerHandLeft:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-14, 3), Vector2(-25, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerHandUp:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, -14), Vector2(5, -25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerHandDown:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5, 14), Vector2(-5, 25)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_to223"]
 _data = {
 "Idle": SubResource("Animation_jhse1"),
+"Punch": SubResource("Animation_wittx"),
 "Walk": SubResource("Animation_yjinx")
 }
 
@@ -158,5 +212,29 @@ speed_scale = 5.0
 libraries = {
 "": SubResource("AnimationLibrary_to223")
 }
+
+[node name="PlayerHandRight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(22, 0)
+rotation = 4.71239
+texture = ExtResource("4_t7h63")
+
+[node name="PlayerHandLeft" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-21, 3)
+rotation = 1.5708
+texture = ExtResource("4_t7h63")
+
+[node name="PlayerHandUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(5, -21)
+rotation = 3.14159
+texture = ExtResource("4_t7h63")
+
+[node name="PlayerHandDown" type="Sprite2D" parent="."]
+visible = false
+z_index = 6
+position = Vector2(-5, 22)
+texture = ExtResource("4_t7h63")
 
 [connection signal="body_entered" from="HammerColision" to="HammerColision" method="OnBodyDetected"]
