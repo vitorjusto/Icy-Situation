@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://doxd83ijwptef"]
+
+[ext_resource type="Script" path="res://Scripts/Tutorial/MoveTutorial.cs" id="1_i05bw"]
+[ext_resource type="Texture2D" uid="uid://bo4eg7emwwmbi" path="res://Assets/Tutorials/MoveTutorial.png" id="2_crbwy"]
+
+[sub_resource type="Animation" id="Animation_2p6s8"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveTutorial:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyv8d"]
+_data = {
+"new_animation": SubResource("Animation_2p6s8")
+}
+
+[node name="MoveTutorial" type="Node2D"]
+script = ExtResource("1_i05bw")
+
+[node name="MoveTutorial" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_crbwy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tyv8d")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

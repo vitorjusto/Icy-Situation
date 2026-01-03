@@ -36,12 +36,15 @@ namespace WinterGame.Scripts.Models.Blocks
 			if(MoveAndSlide())
 			{
 				Speed = Vector2.Zero;
+				EmitSignal("onStoped");
 				FixPosition();
 			}
 		}
 
 		public void StartMoving(EDirection direction)
 		{
+			EmitSignal("onPunched");
+
 			FixPosition();
 			Speed = new Vector2(
 					x: direction == EDirection.Right? 400: direction == EDirection.Left?-400: 0,
@@ -56,8 +59,12 @@ namespace WinterGame.Scripts.Models.Blocks
 			Position = new Vector2(((float)Math.Truncate(Position.X / 32) * 32 + (Position.X % 32 > 16? 32: Position.X % 32 < -16? -32: 0)),
 							   (float)Math.Truncate(Position.Y / 32) * 32 + (Position.Y % 32 > 16? 32: Position.Y % 32 < -16? -32: 0));
 			
-			GD.Print(Position);
 			_collisions.ForEach((x) => x.onStoped());
 		}
+
+		[Signal]
+		public delegate void onPunchedEventHandler();
+		[Signal]
+		public delegate void onStopedEventHandler();
 	}
 }
