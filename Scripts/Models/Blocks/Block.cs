@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Godot;
 using WinterGame.Scripts.Enums;
 using WinterGame.Scripts.Helpers;
+using WinterGame.Scripts.Managers;
 
 namespace WinterGame.Scripts.Models.Blocks
 {
@@ -37,6 +38,8 @@ namespace WinterGame.Scripts.Models.Blocks
 			{
 				Speed = Vector2.Zero;
 				EmitSignal("onStoped");
+				SFXManager.aspBoxStopped.Play();
+
 				FixPosition();
 			}
 		}
@@ -44,6 +47,7 @@ namespace WinterGame.Scripts.Models.Blocks
 		public void StartMoving(EDirection direction)
 		{
 			EmitSignal("onPunched");
+			SFXManager.aspHitBox.Play();
 
 			FixPosition();
 			Speed = new Vector2(

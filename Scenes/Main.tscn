@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://faw05ywkreq2"]
+[gd_scene load_steps=6 format=3 uid="uid://faw05ywkreq2"]
 
 [ext_resource type="PackedScene" uid="uid://ctqwhalhunfxw" path="res://Scenes/Player/Player.tscn" id="1_omd86"]
 [ext_resource type="Script" path="res://Scripts/Managers/LevelManager.cs" id="2_gfy0q"]
 [ext_resource type="AudioStream" uid="uid://bgieiiu1xxqde" path="res://Assets/Songs/SnowyMontain.mp3" id="3_ke152"]
+[ext_resource type="PackedScene" uid="uid://cs8j5mvxpmi24" path="res://Scenes/SFXManager.tscn" id="4_i6ms5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyvoo"]
 bg_color = Color(0, 0, 0, 1)
@@ -28,3 +29,5 @@ script = ExtResource("2_gfy0q")
 stream = ExtResource("3_ke152")
 volume_db = -10.0
 autoplay = true
+
+[node name="SFXManager" parent="." instance=ExtResource("4_i6ms5")]

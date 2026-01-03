@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Godot;
 using WinterGame.Scripts.Enums;
+using WinterGame.Scripts.Managers;
 using WinterGame.Scripts.Models.Players;
 
 public partial class Player : CharacterBody2D
@@ -57,6 +58,8 @@ public partial class Player : CharacterBody2D
 
 		if(Input.IsActionJustPressed("Punch"))
 		{
+			SFXManager.aspPlayerPunch.Play();
+			
 			GetNode<Node2D>("PlayerHandLeft").Visible = FacingDirection == EDirection.Left;
 			GetNode<Node2D>("PlayerHandRight").Visible = FacingDirection == EDirection.Right;
 			GetNode<Node2D>("PlayerHandUp").Visible = FacingDirection == EDirection.Up;

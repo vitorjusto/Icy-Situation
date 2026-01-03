@@ -1,6 +1,7 @@
 using Godot;
 using System.Linq;
 using WinterGame.Scripts.Enums;
+using WinterGame.Scripts.Managers;
 
 namespace WinterGame.Scripts.Models.Objects;
 public partial class Door : Node2D
@@ -12,6 +13,7 @@ public partial class Door : Node2D
 
 	private CollisionShape2D _col;
 	private Node2D _tex;
+	private bool _alreadyActivated;
 	public override void _Ready()
 	{
 		_col = GetNode<CollisionShape2D>("CollisionShape2D");
@@ -34,11 +36,17 @@ public partial class Door : Node2D
 	{
 		if(Buttons.All((x) => x.IsActived))
 		{
+			if(!_alreadyActivated)
+			{
+				_alreadyActivated = true;
+				SFXManager.aspDoorOpen.Play();
+			}
 			_col.Disabled = true;
 			_tex.Visible = false;
 		}
 		else 
 		{
+			_alreadyActivated = false;
 			_col.Disabled = false;
 			_tex.Visible = true;
 		}

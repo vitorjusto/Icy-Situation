@@ -1,4 +1,5 @@
 using Godot;
+using WinterGame.Scripts.Managers;
 
 namespace WinterGame.Scripts.Models.Objects;
 public partial class Coin : Area2D
@@ -14,6 +15,7 @@ public partial class Coin : Area2D
 
 	public void OnPlayerDetected(Node2D node)
 	{
+		SFXManager.aspPickupCoin.Play();
 		var player = (Player)node;
 		player.CoinsCollected.Add(CoinId);
 		CallDeferred("queue_free");

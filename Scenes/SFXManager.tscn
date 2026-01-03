@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs8j5mvxpmi24"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/SFXManager.cs" id="1_117p7"]
+[ext_resource type="AudioStream" uid="uid://q4n12et8fwdk" path="res://Assets/SFX/BoxStopped.wav" id="2_8o0kn"]
+[ext_resource type="AudioStream" uid="uid://x8bcou3pdhpn" path="res://Assets/SFX/DoorOpen.wav" id="3_s1x67"]
+[ext_resource type="AudioStream" uid="uid://b56g6n8tt5do3" path="res://Assets/SFX/HitBox.wav" id="4_88fke"]
+[ext_resource type="AudioStream" uid="uid://5sky26rvq2q0" path="res://Assets/SFX/pickupCoin.wav" id="5_rp0mw"]
+[ext_resource type="AudioStream" uid="uid://c445dq06tdjfs" path="res://Assets/SFX/PlayerPunch.wav" id="6_yf6ls"]
+[ext_resource type="AudioStream" uid="uid://dfi2auotnryv4" path="res://Assets/SFX/Reset.wav" id="7_3jxgg"]
+
+[node name="SFXManager" type="Node2D"]
+script = ExtResource("1_117p7")
+
+[node name="ASPBoxStopped" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8o0kn")
+
+[node name="ASPDoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s1x67")
+volume_db = -15.0
+
+[node name="ASPHitBox" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_88fke")
+volume_db = -10.0
+
+[node name="ASPPickupCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rp0mw")
+volume_db = -10.0
+
+[node name="ASPPlayerPunch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yf6ls")
+volume_db = -10.0
+
+[node name="ASPReset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3jxgg")
+volume_db = -10.0

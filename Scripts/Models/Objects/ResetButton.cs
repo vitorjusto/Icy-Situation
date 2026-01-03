@@ -1,4 +1,5 @@
 using Godot;
+using WinterGame.Scripts.Managers;
 
 namespace WinterGame.Scripts.Models.Objects;
 
@@ -14,6 +15,9 @@ public partial class ResetButton : Area2D
 	public void OnBodyEntered(Node2D node)
 	{
 		EmitSignal("OnPress");
+		if(!SFXManager.aspReset.Playing)
+			SFXManager.aspReset.Play();
+		
 		Sprite.Play("Pressing");
 	}
 

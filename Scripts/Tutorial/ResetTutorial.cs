@@ -4,8 +4,12 @@ namespace WinterGame.Scripts.Tutorial;
 public partial class ResetTutorial : Node2D
 {
 	private bool _fadedIn;
+	private bool _alreadStarted;
 	public void OnFadeIn()
 	{
+		if(_alreadStarted)
+			return;
+		_alreadStarted = true;
 		GetNode<AnimationPlayer>("AnimationPlayer").Play("FadeIn");
 	}
 
