@@ -10,7 +10,7 @@ You can play this game [Here](https://vitorjusto.itch.io/icy-situation)
 ## Credits
 Everthing made by: Vitorjusto
 
-## tecnology used: 
+## Tecnology used: 
 **Engine**: [Godot](https://godotengine.org/pt-br/)
 
 **Sound Efects**: [Jsfxr](https://sfxr.me/)
